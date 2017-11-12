@@ -6,11 +6,11 @@ $.i18n = $.i18n || {
     init: function(applyOnReady, useGlobalization) {
         if(useGlobalization) {
             navigator.globalization.getPreferredLanguage(function(language) {
-                    console.log("Device language is: " + language);
-                    $.i18n.lang = language;
+                    console.log("Device language is: " + language.value);
+                    $.i18n.lang = language.value;
                     if( $.i18n.lang != $.i18n.default ) {
                         if($.i18n.strings[$.i18n.lang] == undefined) {
-                            console.log("There is no localization data for " + language + " language, using default");
+                            console.log("There is no localization data for " + language.value + " language, using default");
                             $.i18n.lang = $.i18n.default;
                         }
                     }
